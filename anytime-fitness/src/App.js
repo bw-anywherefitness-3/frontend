@@ -30,6 +30,7 @@ const initialUsers = []
 export default function App() {
   const [users, setUsers] = useState(initialUsers);
   const [formValues, setFormValues] = useState(initialFormValues);
+  const [formErrors, setFormErrors] = useState(initialFormErrors);
   
 
   const inputChange = (name, value) => {
@@ -67,11 +68,10 @@ export default function App() {
         </Route>
         <Route path='/register'>
           <Register 
-          values={}
-          change={}
-          submit={}
-          errors={}
-          disabled={}
+          values={formValues}
+          change={inputChange}
+          submit={formSubmit}
+          errors={formErrors}
           />
         </Route>
         <Route path='/'>
