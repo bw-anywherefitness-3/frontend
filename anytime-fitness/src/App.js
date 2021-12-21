@@ -7,6 +7,7 @@ const initialFormValues = {
   //Text boxes
   email: '',
   password: '',
+  //Radio btns.
 role: '',
 }
 
