@@ -25,12 +25,26 @@ const initialFormErrors = {
 }
 
 const initialUsers = []
-const initialDisabled = true;
+
 
 export default function App() {
   const [users, setUsers] = useState(initialUsers);
   const [formValues, setFormValues] = useState(initialFormValues);
-  const [disabled, setDisabled] = useState(initialDisabled);
+  
+
+  const inputChange = (name, value) => {
+    setFormValues({ ...formValues, [name]: value })
+  }
+
+  const formSubmit = () => {
+    const newUser = {
+      firstName: '',
+      lastName: '',
+      email: '', 
+      password: '',
+      role: ''
+    }
+  }
 
   return (
     <div className="App">
