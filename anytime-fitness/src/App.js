@@ -1,28 +1,82 @@
 
 import './App.css';
-import Login from './login'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react';
+import { Link, Route, Switch } from 'react-router-dom';
+
+import Register from './Components/Register';
+import Login from './Components/Login';
+import ClassDetails from './Components/ClassDetails';
+import InstructorDash from './Components/InstructorDash';
+import UserDash from './Components/UserDash';
 
 const initialFormValues = {
-  //Text boxes
-  email: '',
+  firstName: '',
+  lastName: '',
+  email: '', 
   password: '',
-  //Radio btns.
-role: '',
+  role: ''
 }
 
-function App() {
-  const [formValues, setFormValues] = useState(initialFormValues)
-
-const inputChange = (name, value) => {
-setFormValues({...formValues, [name]: value});
+const initialFormErrors = {
+  firstName: '',
+  lastName: '',
+  email: '', 
+  password: '',
+  role: ''
 }
+
+const initialUsers = []
+
+
+export default function App() {
+  const [users, setUsers] = useState(initialUsers);
+  const [formValues, setFormValues] = useState(initialFormValues);
+  const [formErrors, setFormErrors] = useState(initialFormErrors);
+  
+
+  const inputChange = (name, value) => {
+    setFormValues({ ...formValues, [name]: value })
+  }
+
+  const formSubmit = () => {
+    const newUser = {
+      firstName: '',
+      lastName: '',
+      email: '', 
+      password: '',
+      role: ''
+    }
+  }
 
   return (
     <div className="App">
-      <Login values={formValues} change={inputChange}/>
-    </div>
-  );
-}
+      <h1>Anywhere Fitness</h1>
+      <h3>The gym experience without the gym</h3>
+      <div className='nav-links'>
+        <Link to='/'>Login</Link>
+        <Link to='/register'>Register</Link>
+      </div>
 
-export default App;
+      <Switch>
+        <Route path='/userhome/classdetails'>
+          <ClassDetails />
+        </Route>
+        <Route path='/instructorhome'>
+          <InstructorDash />
+        </Route>
+        <Route path='/userhome'>
+          <UserDash />
+        </Route>
+        <Route path='/register'>
+          <Register 
+          values={formValues}
+          change={inputChange}
+          submit={formSubmit}
+          errors={formErrors}
+          />
+        </Route>
+        <Route path='/'>
+          <Login />
+        </Route>
+      </Switch>
+)};
