@@ -1,3 +1,4 @@
+
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
@@ -78,6 +79,4 @@ export default function App() {
           <Login />
         </Route>
       </Switch>
-    </div>
-  );
-}
+)};
