@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
 
 import Register from './Components/Register';
-import Login from './Components/login';
+import Login from './Components/Login';
 // import ClassDetails from './Components/ClassDetails';
 // import InstructorDash from './Components/InstructorDash';
 import UserDash from './Components/UserDash';
