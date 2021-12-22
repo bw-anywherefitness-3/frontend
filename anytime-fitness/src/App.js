@@ -59,13 +59,10 @@ export default function App() {
 
       <Switch>
         <Route path='/userhome/classdetails'>
-          <ClassDetails />
         </Route>
         <Route path='/instructorhome'>
-          <InstructorDash />
         </Route>
         <Route path='/userhome'>
-          <UserDash />
         </Route>
         <Route path='/register'>
           <Register 
@@ -76,7 +73,6 @@ export default function App() {
           />
         </Route>
         <Route path='/'>
-          <Login />
         </Route>
       </Switch>
   </div>
