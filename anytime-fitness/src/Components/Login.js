@@ -1,13 +1,19 @@
-import React from 'react'
+import React from 'react';
+import { useHistory } from "react-router-dom"; 
 
 export default function Login(props){
 
 const {values, change} = props
+const history = useHistory()
 
 const onChange = (evt, v) => {
     const { name, value, type } = evt.target
     const valueToUse = type === 'radio' ? v : value
     change(name, valueToUse)
+}
+
+const routeToUserHome = () => {
+    history.push('/userhome');
 }
 
 return (
@@ -54,6 +60,7 @@ return (
         onChange={onChange}
         />
         </label>
+        <button onClick={routeToUserHome}>Login</button>
     </div>
 </form>
 </div>

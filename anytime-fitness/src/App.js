@@ -7,7 +7,7 @@ import Register from './Components/Register';
 import Login from './Components/login';
 // import ClassDetails from './Components/ClassDetails';
 // import InstructorDash from './Components/InstructorDash';
-// import UserDash from './Components/UserDash';
+import UserDash from './Components/UserDash';
 
 const initialFormValues = {
   firstName: '',
@@ -27,10 +27,11 @@ const initialFormErrors = {
 
 const initialUsers = []
 // const initialDisabled = true;
-
+const initialClasses = []
 
 export default function App() {
   const [users, setUsers] = useState(initialUsers);
+  const [classes, setClasses] = useState(initialClasses);
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   // const [disabled, setDisabled] = useState(initialDisabled);
@@ -65,7 +66,7 @@ export default function App() {
         <Route path='/instructorhome'>
   </Route> */}
         <Route path='/userhome'>
-          <UserDash />
+          <UserDash userDetails={users} classDetails={classes} />
         </Route> 
         <Route path='/register'>
           <Register 
