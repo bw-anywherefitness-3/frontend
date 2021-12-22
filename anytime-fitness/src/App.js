@@ -1,6 +1,6 @@
 
 import './App.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
 
 import Register from './Components/Register';
@@ -59,13 +59,10 @@ export default function App() {
 
       <Switch>
         <Route path='/userhome/classdetails'>
-          <ClassDetails />
         </Route>
         <Route path='/instructorhome'>
-          <InstructorDash />
         </Route>
         <Route path='/userhome'>
-          <UserDash />
         </Route>
         <Route path='/register'>
           <Register 
@@ -76,7 +73,7 @@ export default function App() {
           />
         </Route>
         <Route path='/'>
-          <Login />
         </Route>
       </Switch>
-)};
+  </div>
+)}
