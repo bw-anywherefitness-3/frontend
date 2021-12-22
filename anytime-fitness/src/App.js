@@ -4,10 +4,10 @@ import React, { useState } from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
 
 import Register from './Components/Register';
-import Login from './Components/Login';
-import ClassDetails from './Components/ClassDetails';
-import InstructorDash from './Components/InstructorDash';
-import UserDash from './Components/UserDash';
+import Login from './Components/login';
+// import ClassDetails from './Components/ClassDetails';
+// import InstructorDash from './Components/InstructorDash';
+// import UserDash from './Components/UserDash';
 
 const initialFormValues = {
   firstName: '',
@@ -26,12 +26,14 @@ const initialFormErrors = {
 }
 
 const initialUsers = []
+// const initialDisabled = true;
 
 
 export default function App() {
   const [users, setUsers] = useState(initialUsers);
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
+  // const [disabled, setDisabled] = useState(initialDisabled);
   
 
   const inputChange = (name, value) => {
@@ -58,12 +60,13 @@ export default function App() {
       </div>
 
       <Switch>
-        <Route path='/userhome/classdetails'>
+        {/* <Route path='/userhome/classdetails'>
         </Route>
         <Route path='/instructorhome'>
-        </Route>
+  </Route> */}
         <Route path='/userhome'>
-        </Route>
+          <UserDash />
+        </Route> 
         <Route path='/register'>
           <Register 
           values={formValues}
@@ -73,6 +76,10 @@ export default function App() {
           />
         </Route>
         <Route path='/'>
+          <Login 
+          values={formValues}
+          change={inputChange}
+          />
         </Route>
       </Switch>
   </div>
