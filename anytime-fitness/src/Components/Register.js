@@ -15,7 +15,7 @@ export default function Register (props) {
 
     const onChange = e => {
         const { name, value, checked, type } = e.target
-        const ValueToUse = type === 'checked' ? checked: value;
+        const ValueToUse = type === 'radio' ? checked : value;
         change(name, ValueToUse)
     }
 
@@ -23,6 +23,13 @@ export default function Register (props) {
         <form id='register-form' onSubmit={onSubmit}>
             <div className='form'>
                 <h2>Create a new Account</h2>
+                <div className='errors'>
+                    <div>{errors.firstName}</div>
+                    <div>{errors.lastName}</div>
+                    <div>{errors.email}</div>
+                    <div>{errors.password}</div>
+                    <div>{errors.role}</div>
+                </div>
                 <div className='name'>
                     <label>First Name: 
                         <input
@@ -85,6 +92,9 @@ export default function Register (props) {
                         />
                     </label>
                 </div>
+
+                <button>Submit</button>
+
             </div>
         </form>
     )
