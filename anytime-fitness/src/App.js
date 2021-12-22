@@ -66,7 +66,7 @@ export default function App() {
         <Route path='/instructorhome'>
   </Route> */}
         <Route path='/userhome'>
-          <UserDash userDetails={users} classDetails={classes} />
+          <UserDash uDetails={users} cDetails={classes} />
         </Route> 
         <Route path='/register'>
           <Register 

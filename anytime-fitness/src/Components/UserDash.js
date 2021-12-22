@@ -3,20 +3,20 @@ import { Link, useRouteMatch } from 'react-router-dom';
 import Class from './Class';
 
 export default function UserDash (props) {
-    const { userDetails, classDetails } = props;
+    const { uDetails, cDetails } = props;
     const { url } = useRouteMatch();
 
     return (
         <div className='home container'>
-           <h3>Hey {userDetails.firstName}!</h3>
+           <h3>Hey {uDetails.firstName}!</h3>
            <div className='class-list'>
-            {classDetails.map(choice => (
+            {cDetails.map(choice => (
                 <div 
                 className='class-card' 
                 key={choice.id}
                 >
                     <Link to={`${url}/${choice.id}`}>
-                        <Class />
+                        <Class cDetails={cDetails}/>
                     </Link>
                 </div>
             ))}
