@@ -1,6 +1,6 @@
 
 import './App.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
 
 import Register from './Components/Register';
@@ -79,4 +79,5 @@ export default function App() {
           <Login />
         </Route>
       </Switch>
-)};
+  </div>
+)}
