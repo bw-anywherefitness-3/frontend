@@ -19,7 +19,8 @@ export default function Register (props) {
         values, 
         submit,
         change, 
-        errors
+        errors,
+        disabled
     } = props
 
     const onSubmit = e => {
@@ -106,7 +107,7 @@ export default function Register (props) {
                     </label>
                 </div>
 
-                <button>Submit</button>
+                <button disabled={disabled}>Submit</button>
 
             </div>
         </form>
