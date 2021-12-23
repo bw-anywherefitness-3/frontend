@@ -27,10 +27,10 @@ export default function Register (props) {
         submit()
     }
 
-    const onChange = e => {
-        const { name, value, checked, type } = e.target
-        const ValueToUse = type === 'radio' ? checked : value;
-        change(name, ValueToUse)
+    const onChange = (e, v) => {
+        const { name, value, type } = e.target
+        const valueToUse = type === 'radio' ? v : value;
+        change(name, valueToUse)
     }
 
     return (
@@ -92,18 +92,16 @@ export default function Register (props) {
                         <input 
                         type='radio'
                         name='role'
-                        value='client'
-                        onChange={onChange}
-                        checked={values.role === 'client'}
+                        value={values.role}
+                        onChange={e => onChange(e, 'Client')}
                         />
                     </label>
                     <label>Instructor
                         <input 
                         type='radio'
                         name='role'
-                        value='instructor'
-                        onChange={onChange}
-                        checked={values.role === 'instructor'}
+                        value={values.role}
+                        onChange={e => onChange(e, 'Instructor')}
                         />
                     </label>
                 </div>
