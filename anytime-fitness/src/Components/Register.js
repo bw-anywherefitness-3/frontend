@@ -24,6 +24,7 @@ export default function Register (props) {
     } = props
 
     const history = useHistory()
+<<<<<<< HEAD
     const routeToDashboard = () => {
         if (values.role === 'client'){
         history.push('/userhome');
@@ -34,8 +35,16 @@ export default function Register (props) {
         } 
     }
     
+=======
+
+    const routeToLogin = () => {
+        history.push('/');
+    }
+
+>>>>>>> 2d0acca16d0d071363f854acbb47aef022d0abfc
     const onSubmit = e => {
         e.preventDefault()
+
         submit()
         routeToDashboard()
     }
@@ -119,7 +128,11 @@ export default function Register (props) {
                     </label>
                 </div>
 
+<<<<<<< HEAD
                 <button disabled={disabled}>Submit</button>
+=======
+                <button disabled={disabled} onSubmit={routeToLogin}>Submit</button>
+>>>>>>> 2d0acca16d0d071363f854acbb47aef022d0abfc
 
             </div>
         </form>

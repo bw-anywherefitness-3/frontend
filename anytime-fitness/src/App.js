@@ -102,6 +102,7 @@ export default function App() {
     }
   }
 
+
 const postNewUser = newUser => {
   axios.post('https://bw-anywherefitness-3.herokuapp.com/api/users', newUser)
   .then(resp => {
@@ -110,6 +111,48 @@ const postNewUser = newUser => {
   .finally(() => setFormValues(initialFormValues))
 }
 
+const validate = (name, value) => {
+  yup.reach(UserSchema, name)
+  .validate(value)
+  .then(() => setFormErrors({ ...formErrors, [name]: '' }))
+  .catch(err => setFormErrors({ ...formErrors, [name]: err.errors[0] }))
+}
+
+const inputChange = (name, value) => {
+  validate(name, value);
+  setFormValues({ ...formValues, [name]: value })
+}
+
+const postNewClass = newClass => {
+  axios.post('https://bw-anywherefitness-3.herokuapp.com/api/classes/:id', newClass)
+  .then(resp => {
+    setClasses([resp.data, ...classes]);
+  }).catch(err => console.log(err))
+  .finally(() => setFormValues(initialFormValues))
+}
+
+useEffect(() => {
+  UserSchema.isValid(formValues).then(valid => setDisabled(!valid))
+}, [formValues])
+
+const classFormSubmit = () => {
+  const newClass = {
+    cType: formValues.cType,
+    sunday: formValues.sunday,
+    monday: formValues.monday,
+    tuesday: formValues.tuesday,
+    wednesday: formValues.wednesday,
+    thursday: formValues.thursday,
+    friday: formValues.friday,
+    saturday: formValues.saturday,
+    duration: formValues.duration,
+    intensity_level: formValues.intensity_level, 
+    location: formValues.location,
+    attendees: formValues.attendees,
+    max_size: formValues.max_size
+  }
+  postNewClass(newClass)
+}
 
 const validate = (name, value) => {
   yup.reach(UserSchema, name)
@@ -170,6 +213,11 @@ const classFormSubmit = () => {
             </Route>
         <Route path='/instructorhome'>
           <InstructorDash iDetails={instructors} createdCs={classes}/>
+<<<<<<< HEAD
+=======
+        </Route>
+        <Route path='/userhome'>
+>>>>>>> 2d0acca16d0d071363f854acbb47aef022d0abfc
         </Route>
 
         <Route path='/userhome'>
