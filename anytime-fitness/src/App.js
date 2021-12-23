@@ -104,7 +104,7 @@ export default function App() {
 
 
 const postNewUser = newUser => {
-  axios.post('https://bw-anywherefitness-3.herokuapp.com/api/users', newUser)
+  axios.post('https://bw-anywherefitness-3.herokuapp.com/api/auth/register', newUser)
   .then(resp => {
     setUsers([resp.data, ...users]);
   }).catch(err => console.log(err))
