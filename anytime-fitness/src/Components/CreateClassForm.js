@@ -5,7 +5,9 @@ import {
 	addNewClass,
 	updateCurrentUser,
 	setClasses,
-} from "../actions";
+
+} from "./actions";
+
 import "../App.css";
 import axios from "axios";
 
