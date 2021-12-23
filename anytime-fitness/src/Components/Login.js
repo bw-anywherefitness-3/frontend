@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom';
@@ -73,10 +74,18 @@ h4{
     justify-content: center;
 }
 `
+=======
+import React from 'react';
+import { useHistory } from "react-router-dom"; 
+>>>>>>> 652d87f73dcfbd88cbd4d3a5ec03ebd8beac9810
 
 export default function Login(props){
 
 const {values, change} = props
+<<<<<<< HEAD
+=======
+const history = useHistory()
+>>>>>>> 652d87f73dcfbd88cbd4d3a5ec03ebd8beac9810
 
 const onChange = (evt, v) => {
     const { name, value, type } = evt.target
@@ -84,6 +93,7 @@ const onChange = (evt, v) => {
     change(name, valueToUse)
 }
 
+<<<<<<< HEAD
 return (
     
     <LoginDiv className='login-container'>
@@ -98,6 +108,24 @@ return (
     id='email-input'
     type='text'
     placeholder='John@email.com'
+=======
+const routeToUserHome = () => {
+    history.push('/userhome');
+}
+
+return (
+    <div className='login-container'>
+<form id='login-form'>
+    <div className='login'>
+<label>Login:
+    <input 
+    name='email'
+    id='email-input'
+    type='text'
+    placeholder='Enter your email here.'
+    value={values.email}
+    onChange={onChange}
+>>>>>>> 652d87f73dcfbd88cbd4d3a5ec03ebd8beac9810
     />
 </label>
     </div>
@@ -114,7 +142,11 @@ return (
         </label>
     </div>
     <div className='radio-buttons'>
+<<<<<<< HEAD
         <label className='client'>Client
+=======
+        <label>Client
+>>>>>>> 652d87f73dcfbd88cbd4d3a5ec03ebd8beac9810
         <input 
         type='radio'
         name='role'
@@ -122,7 +154,11 @@ return (
         onChange={onChange}
         />
         </label>
+<<<<<<< HEAD
         <label className='instructor'>Instructor
+=======
+        <label>Instructor
+>>>>>>> 652d87f73dcfbd88cbd4d3a5ec03ebd8beac9810
         <input 
         type='radio'
         name='role'
@@ -130,6 +166,7 @@ return (
         onChange={onChange}
         />
         </label>
+<<<<<<< HEAD
     </div>
     <div className='nav-links'>
       <Link className='nav-links submit' to='/'>Submit</Link>
@@ -142,5 +179,11 @@ return (
 
 </LoginDiv>
 
+=======
+        <button onClick={routeToUserHome}>Login</button>
+    </div>
+</form>
+</div>
+>>>>>>> 652d87f73dcfbd88cbd4d3a5ec03ebd8beac9810
 )
 }

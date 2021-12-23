@@ -5,8 +5,8 @@ import { Link, Route, Switch } from 'react-router-dom';
 
 import Register from './Components/Register';
 import Login from './Components/Login';
-import ClassDetails from './Components/ClassDetails';
-import InstructorDash from './Components/InstructorDash';
+// import ClassDetails from './Components/ClassDetails';
+// import InstructorDash from './Components/InstructorDash';
 import UserDash from './Components/UserDash';
 import styled from 'styled-components';
 import photo from '../src/Photos/gym.jpg'
@@ -62,12 +62,15 @@ const initialFormErrors = {
 
 
 const initialUsers = []
-
+// const initialDisabled = true;
+const initialClasses = []
 
 export default function App() {
   const [users, setUsers] = useState(initialUsers);
+  const [classes, setClasses] = useState(initialClasses);
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
+  // const [disabled, setDisabled] = useState(initialDisabled);
   
 
   const inputChange = (name, value) => {
@@ -98,11 +101,12 @@ export default function App() {
       <h3>The gym experience without the gym</h3>
 
       <Switch>
-        <Route path='/userhome/classdetails'>
+        {/* <Route path='/userhome/classdetails'>
         </Route>
         <Route path='/instructorhome'>
-        </Route>
+  </Route> */}
         <Route path='/userhome'>
+<<<<<<< HEAD
         </Route>
 
         <Route path='/'>
@@ -114,6 +118,10 @@ export default function App() {
           />
         </Route>
 
+=======
+          <UserDash uDetails={users} cDetails={classes} />
+        </Route> 
+>>>>>>> 652d87f73dcfbd88cbd4d3a5ec03ebd8beac9810
         <Route path='/register'>
           <Register 
           values={formValues}
@@ -122,7 +130,16 @@ export default function App() {
           errors={formErrors}
           />
         </Route>
+<<<<<<< HEAD
 
+=======
+        <Route path='/'>
+          <Login 
+          values={formValues}
+          change={inputChange}
+          />
+        </Route>
+>>>>>>> 652d87f73dcfbd88cbd4d3a5ec03ebd8beac9810
       </Switch>
   </div>
   </AppStyled>
