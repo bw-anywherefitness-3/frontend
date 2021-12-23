@@ -2,7 +2,7 @@
 import './App.css';
 import React, { useState } from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
-
+import axios from 'axios'
 import Register from './Components/Register';
 import Login from './Components/Login';
 // import ClassDetails from './Components/ClassDetails';
@@ -41,15 +41,27 @@ export default function App() {
     setFormValues({ ...formValues, [name]: value })
   }
 
+// Taking users info and pushing it into api.
   const formSubmit = () => {
     const newUser = {
-      firstName: '',
-      lastName: '',
-      email: '', 
-      password: '',
-      role: ''
+      firstName: formValues.firstName.trim(),
+      lastName: formValues.lastName.trim(),
+      email: formValues.email.trim(), 
+      password: formValues.password.trim(),
+      role: formValues.role
     }
+    console.log(newUser)
+    postNewUser(newUser)
   }
+
+const postNewUser = newUser => {
+  axios.post('https://bw-anywherefitness-3.herokuapp.com/api/users', newUser)
+  .then(resp => {
+    setUsers([resp.data, ...users]);
+  }).catch(err => console.log(err))
+  .finally(() => setFormValues(initialFormValues))
+}
+
 
   return (
     <div className="App">
