@@ -1,4 +1,10 @@
 import React from 'react'
+import photo from './Photos/gym.jpg'
+
+const LoginDiv = styled.div`
+
+`
+
 
 export default function Login(props){
 
@@ -11,17 +17,18 @@ const onChange = (evt, v) => {
 }
 
 return (
+    <LoginDiv>
     <div className='login-container'>
 <form id='login-form'>
     <div className='login'>
-<label>Login:
+<label>Email:
     <input 
     value={values.email}
     onChange={onChange}
     name='email'
     id='email-input'
     type='text'
-    placeholder='Enter your email here.'
+    placeholder='JohnDoe1234@yahoo.com'
     />
 </label>
     </div>
@@ -57,5 +64,6 @@ return (
     </div>
 </form>
 </div>
+</LoginDiv>
 )
 }

@@ -8,6 +8,41 @@ import Login from './Components/Login';
 import ClassDetails from './Components/ClassDetails';
 import InstructorDash from './Components/InstructorDash';
 import UserDash from './Components/UserDash';
+import styled from 'styled-components';
+import photo from '../src/Photos/gym.jpg'
+
+
+const AppStyled = styled.div`
+background-image: url(${photo});
+background-repeat: no-repeat;
+background-size: cover;
+opacity:0.8;
+background-attachment: fixed;
+height: 100vh;
+.App{
+color: red;
+font-family: 'Staatliches', cursive;
+margin-top:0;
+padding:2%;
+}
+.head{
+  font-size: 90px;
+  margin-bottom:0;
+  margin-top:2%;
+  letter-spacing: 0.2rem;
+}
+h3{
+  color: white;
+  font-size: 25px;
+  -webkit-text-stroke-width: .3px;
+  -webkit-text-stroke-color: black;
+  letter-spacing: .2rem;
+  margin-top: 2%;
+}
+
+
+
+`
 
 const initialFormValues = {
   firstName: '',
@@ -24,6 +59,7 @@ const initialFormErrors = {
   password: '',
   role: ''
 }
+
 
 const initialUsers = []
 
@@ -48,14 +84,18 @@ export default function App() {
     }
   }
 
+  const loginSubmit = () => {
+    const newLogin = {
+      email: '',
+      password: ''
+    }
+  }
+
   return (
+    <AppStyled>
     <div className="App">
-      <h1>Anywhere Fitness</h1>
+      <h1 className='head'>Anywhere Fitness</h1>
       <h3>The gym experience without the gym</h3>
-      <div className='nav-links'>
-        <Link to='/'>Login</Link>
-        <Link to='/register'>Register</Link>
-      </div>
 
       <Switch>
         <Route path='/userhome/classdetails'>
@@ -64,6 +104,16 @@ export default function App() {
         </Route>
         <Route path='/userhome'>
         </Route>
+
+        <Route path='/'>
+          <Login 
+          values={formValues}
+          change={inputChange}
+          submit={loginSubmit}
+          errors={formErrors}
+          />
+        </Route>
+
         <Route path='/register'>
           <Register 
           values={formValues}
@@ -72,8 +122,8 @@ export default function App() {
           errors={formErrors}
           />
         </Route>
-        <Route path='/'>
-        </Route>
+
       </Switch>
   </div>
+  </AppStyled>
 )}
