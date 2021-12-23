@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const LoginDiv = styled.div`
 background-color: white;
@@ -17,8 +17,9 @@ h1{
     font-size: 2rem;
     margin-bottom: 5%;
 }
-.login{
+.email{
     margin-bottom: 4%;
+    
 }
 .password{
     margin-bottom: 4%;
@@ -33,27 +34,43 @@ h1{
 .client{
     padding: 5%;
 }
-.submit{
+.nav-links .submit{
     border: 2px black solid;
-    border-radius: 20px;
+    border-radius: 10px;
     background: black;
     color: white;
+    width: 15%;
+    margin-left: 40%;
+    padding: 1%;
+    font-size: 1rem;
 }
-.register{
-    border: 2px black solid;
-    border-radius: 20px;
-    background: black;
-    
+.nav-links .register{
+    color: black;
+    margin-top: 4%;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-left: 2%;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    padding: 1%;
 }
 .nav-links{
     text-decoration: none;
-    color: white;
-    font-size: 20px;
     padding: 2%;
     display: flex;
-    justify-content: space-around;
-    
-    
+    flex-direction: column;
+    font-size: 1rem;
+}
+h4{
+    font-weight: 2;
+    margin-bottom: 0;
+    font-size: 1rem;
+}
+.bottom{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 `
 
@@ -116,9 +133,13 @@ return (
     </div>
     <div className='nav-links'>
       <Link className='nav-links submit' to='/'>Submit</Link>
-      <Link className='nav-links register' to='/register'>Register</Link>    
+      <div className='bottom'>
+      <h4>Don't have an account?</h4>
+      <Link className='nav-links register' to='/register'>Join us!</Link>    
+    </div>
     </div>
 </form>
+
 </LoginDiv>
 
 )
