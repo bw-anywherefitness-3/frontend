@@ -15,7 +15,7 @@ export default function UserDash (props) {
 
     return (
         <div className='home container'>
-           <h3>Hey {iDetails.firstName}!</h3>
+           <h3>Hey instructor {iDetails.firstName}!</h3>
            <div className='nav-links'>
            <button onClick={routeToCreate}>Create Class</button>
            </div>

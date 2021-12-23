@@ -171,20 +171,11 @@ const classFormSubmit = () => {
         <Route path='/instructorhome'>
           <InstructorDash iDetails={instructors} createdCs={classes}/>
         </Route>
-        <Route path='/userhome'>
-        </Route>
 
-        <Route path='/'>
-          <Login 
-          values={formValues}
-          change={inputChange}
-          submit={loginSubmit}
-          errors={formErrors}
-          />
-        </Route>
-        <Route>
+        <Route path='/userhome'>
           <UserDash uDetails={users} cDetails={classes} />
         </Route> 
+
         <Route path='/register'>
           <Register 
           values={formValues}
@@ -199,6 +190,8 @@ const classFormSubmit = () => {
           <Login 
           values={formValues}
           change={inputChange}
+          submit={loginSubmit}
+          errors={formErrors}
           />
         </Route>
       </Switch>

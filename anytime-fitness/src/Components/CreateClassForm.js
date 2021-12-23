@@ -77,7 +77,7 @@ const CreateClass = (props) => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		const time = formData.time;
-		formatTime(time);
+		//formatTime(time);
 		formData.class_instructor_username = props.currentUser.username;
 		formData.duration = parseInt(formData.duration);
 

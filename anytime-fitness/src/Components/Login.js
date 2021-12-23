@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 const LoginDiv = styled.div`
 background-color: white;
@@ -76,12 +76,23 @@ h4{
 
 export default function Login(props){
 
-const {values, change} = props
+const {values, submit, change} = props
 
 const onChange = (evt, v) => {
     const { name, value, type } = evt.target
     const valueToUse = type === 'radio' ? v : value
     change(name, valueToUse)
+}
+
+const history = useHistory()
+const send = () => {
+    history.push('/register')
+}
+
+const onSubmit = evt => {
+    evt.preventDefault()
+    submit()
+    send()
 }
 
 return (
@@ -132,10 +143,10 @@ return (
         </label>
     </div>
     <div className='nav-links'>
-      <Link className='nav-links submit' to='/'>Submit</Link>
+      <button>Submit</button>
       <div className='bottom'>
       <h4>Don't have an account?</h4>
-      <Link className='nav-links register' to='/register'>Join us!</Link>    
+      <button onClick={onSubmit}>Join us!</button>
     </div>
     </div>
 </form>

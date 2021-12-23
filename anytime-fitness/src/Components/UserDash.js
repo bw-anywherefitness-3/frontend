@@ -8,7 +8,7 @@ export default function UserDash (props) {
 
     return (
         <div className='home container'>
-           <h3>Hey {uDetails.firstName}!</h3>
+           <h3>Hey user{uDetails.firstName}!</h3>
            <div className='class-list'>
             {cDetails.map(choice => (
                 <div 
