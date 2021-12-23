@@ -151,4 +151,4 @@ const postNewUser = newUser => {
       </Switch>
   </div>
   </AppStyled>
-)}  
+)} 
