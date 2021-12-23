@@ -1,18 +1,22 @@
 import React from "react";
-import { Link, Switch, Route, useRouteMatch } from 'react-router-dom';
-import CreateClassForm from './CreateClassForm';
+import { Link, useRouteMatch } from 'react-router-dom';
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import Class from "./Class";
 
 export default function UserDash (props) {
     const { iDetails, createdCs } = props;
     const { url } = useRouteMatch();
+    const history = useHistory()
+
+    const routeToCreate = () => {
+        history.push('/instructorhome/createclass');
+    }
 
     return (
-        <>
         <div className='home container'>
            <h3>Hey {iDetails.firstName}!</h3>
            <div className='nav-links'>
-           <Link to={`${url}/createclass`}>Create Class</Link>
+           <button onClick={routeToCreate}>Create Class</button>
            </div>
            <div className='class-list'>
             {createdCs.map(choice => (
@@ -27,12 +31,5 @@ export default function UserDash (props) {
             ))}
            </div>
         </div>
-
-        <Switch>
-            <Route path='/instructorhome/createclass'>
-                <CreateClassForm details={createdCs} />
-            </Route>
-        </Switch>
-        </>
     )
 }
