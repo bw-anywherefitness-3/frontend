@@ -9,8 +9,46 @@ import ClassDetails from './Components/ClassDetails';
 import InstructorDash from './Components/InstructorDash';
 import CreateClassForm from './Components/CreateClassForm';
 import UserDash from './Components/UserDash';
+
 import UserSchema from './Validation/UserSchema';
 import * as yup from 'yup';
+
+import styled from 'styled-components';
+import photo from '../src/Photos/gym.jpg'
+
+
+const AppStyled = styled.div`
+background-image: url(${photo});
+background-repeat: no-repeat;
+background-size: cover;
+opacity:0.8;
+background-attachment: fixed;
+height: 100vh;
+.App{
+color: red;
+font-family: 'Staatliches', cursive;
+margin-top:0;
+padding:2%;
+}
+.head{
+  font-size: 90px;
+  margin-bottom:0;
+  margin-top:2%;
+  letter-spacing: 0.2rem;
+}
+h3{
+  color: white;
+  font-size: 25px;
+  -webkit-text-stroke-width: .3px;
+  -webkit-text-stroke-color: black;
+  letter-spacing: .2rem;
+  margin-top: 2%;
+}
+
+
+
+`
+
 
 const initialFormValues = {
   firstName: '',
@@ -28,6 +66,7 @@ const initialFormErrors = {
   role: ''
 }
 
+
 const initialUsers = []
 const initialDisabled = true;
 const initialClasses = []
@@ -42,6 +81,28 @@ export default function App() {
   const [disabled, setDisabled] = useState(initialDisabled);
 
 // Taking users info and pushing it into api.
+
+  const formSubmit = () => {
+    const newUser = {
+      firstName: formValues.firstName.trim(),
+      lastName: formValues.lastName.trim(),
+      email: formValues.email.trim(), 
+      password: formValues.password.trim(),
+      role: formValues.role
+    }
+    console.log(newUser)
+    postNewUser(newUser)
+  }
+
+
+  const loginSubmit = () => {
+    const newLogin = {
+      email: '',
+      password: ''
+    }
+  }
+
+
 const postNewUser = newUser => {
   axios.post('https://bw-anywherefitness-3.herokuapp.com/api/users', newUser)
   .then(resp => {
@@ -70,18 +131,6 @@ const postNewClass = newClass => {
   .finally(() => setFormValues(initialFormValues))
 }
 
-const formSubmit = () => {
-  const newUser = {
-    firstName: formValues.firstName.trim(),
-    lastName: formValues.lastName.trim(),
-    email: formValues.email.trim(), 
-    password: formValues.password.trim(),
-    role: formValues.role
-  }
-  console.log(newUser)
-  postNewUser(newUser)
-}
-
 useEffect(() => {
   UserSchema.isValid(formValues).then(valid => setDisabled(!valid))
 }, [formValues])
@@ -105,14 +154,12 @@ const classFormSubmit = () => {
   postNewClass(newClass)
 }
 
+
   return (
+    <AppStyled>
     <div className="App">
-      <h1>Anywhere Fitness</h1>
+      <h1 className='head'>Anywhere Fitness</h1>
       <h3>The gym experience without the gym</h3>
-      <div className='nav-links'>
-        <Link to='/'>Login</Link>
-        <Link to='/register'>Register</Link>
-      </div>
 
       <Switch>
         <Route path='/userhome/classdetails'>
@@ -125,6 +172,17 @@ const classFormSubmit = () => {
           <InstructorDash iDetails={instructors} createdCs={classes}/>
         </Route>
         <Route path='/userhome'>
+        </Route>
+
+        <Route path='/'>
+          <Login 
+          values={formValues}
+          change={inputChange}
+          submit={loginSubmit}
+          errors={formErrors}
+          />
+        </Route>
+        <Route>
           <UserDash uDetails={users} cDetails={classes} />
         </Route> 
         <Route path='/register'>
@@ -136,6 +194,7 @@ const classFormSubmit = () => {
           disabled={disabled}
           />
         </Route>
+
         <Route path='/'>
           <Login 
           values={formValues}
@@ -144,4 +203,5 @@ const classFormSubmit = () => {
         </Route>
       </Switch>
   </div>
-)}
+  </AppStyled>
+)}  

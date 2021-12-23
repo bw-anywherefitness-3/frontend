@@ -1,5 +1,18 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import styled from 'styled-components';
+import photo from '../Photos/red.jpg'
+
+const RegisterDiv = styled.div`
+background: white;
+color: black;
+.name{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+padding: 60px 0;
+`
+
 
 export default function Register (props) {
     const {
@@ -29,6 +42,7 @@ export default function Register (props) {
     }
 
     return (
+        <RegisterDiv>
         <form id='register-form' onSubmit={onSubmit}>
             <div className='form'>
                 <h2>Create a new Account</h2>
@@ -44,7 +58,7 @@ export default function Register (props) {
                         <input
                         type='text'
                         name='firstName'
-                        placeholder='What is your first name?'
+                        placeholder='John'
                         value={values.firstName}
                         onChange={onChange}
                         />
@@ -53,7 +67,7 @@ export default function Register (props) {
                         <input
                         type='text'
                         name='lastName'
-                        placeholder='What is your last name?'
+                        placeholder='Doe'
                         value={values.lastName}
                         onChange={onChange} 
                         />
@@ -64,7 +78,7 @@ export default function Register (props) {
                         <input 
                         type='text'
                         name='email'
-                        placeholder='What is your email?'
+                        placeholder='JohnDoe1234@yahoo.com'
                         value={values.email}
                         onChange={onChange}
                         />
@@ -75,7 +89,7 @@ export default function Register (props) {
                         <input 
                         type='password'
                         name='password'
-                        placeholder='Enter your password here'
+                        placeholder='Password1234!'
                         value={values.password}
                         onChange={onChange}
                         />
@@ -104,5 +118,6 @@ export default function Register (props) {
 
             </div>
         </form>
+        </RegisterDiv>
     )
 }
