@@ -37,7 +37,8 @@ h1{
 .nav-links .submit{
     border: 2px black solid;
     border-radius: 10px;
-    background: black;
+    background-color: black;
+    background-position: absolute;
     color: white;
     width: 15%;
     margin-left: 40%;
