@@ -5,7 +5,9 @@ import {
 	updateClass,
 	updateCurrentUser,
 	getClasses,
+
 } from "./actions";
+
 import axios from "axios";
 
 const initialFormErrors = {
@@ -59,8 +61,6 @@ const UpdateForm = (props) => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		// props.updateClass(formData);
-		// props.updateCurrentUser();
 		formData.class_instructor_username = props.currentUser.username;
 		formData.duration = parseInt(formData.duration);
 		formData.max_size = Number(formData.max_class_size);
@@ -71,7 +71,7 @@ const UpdateForm = (props) => {
 
 		axios
 			.put(
-				`https://anywherefitnessapis.herokuapp.com/api/v1/class/${id}`,
+				`https://bw-anywherefitness-3.herokuapp.com/api/classes/${id}`,
 				formData
 			)
 			.then((res) => {
@@ -216,15 +216,10 @@ const UpdateForm = (props) => {
 							/>
 						</label>
 					</div>
-					<button type="submit" className="btn btn-primary align-self-end ">
+					<button type="submit" className="submit-button">
 						Submit
 					</button>
 				</form>
-				<img
-					src={Logo}
-					className="class-form-logo d-none d-sm-block me-xl-4"
-					alt="people working together"
-				/>
 			</div>
 		</section>
 	);
