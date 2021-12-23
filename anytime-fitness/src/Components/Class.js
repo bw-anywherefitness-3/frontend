@@ -8,6 +8,8 @@ import {
     useHistory
 } from 'react-router-dom';
 
+import ClassDetails from './ClassDetails';
+
 export default function Class (props) {
     const { cDetails } = props; 
     const history = useHistory();
@@ -43,7 +45,16 @@ export default function Class (props) {
             <ClassDetails text={workoutClass.shipping} />
           </Route>
           <Route path={`${path}/description`}>
-            <ClassDetails text={workoutClass.description} />
+            <ClassDetails 
+             cType={workoutClass.type}
+             date={workoutClass.date}
+             time={workoutClass.time}
+             duration={workoutClass.duration}
+             intensity_level={workoutClass.intensity_level}
+             location={workoutClass.location}
+             attendees={workoutClass.attendees}
+             max_size={workoutClass.max_size}
+            />
           </Route>
         </Switch>
       </div>
