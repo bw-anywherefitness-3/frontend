@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+BloomTech Build Week:
+The purpose of Build Week is to empower students to demonstrate mastery of your learning objectives. The Build Weeks experience helps prepare students for the job market.
+Anywhere Fitness
+Pitch🦾
+Link to Product Vision Document: https://docs.google.com/document/d/19_NjzNS3q9kvMZ939ZxwOYgRWcv8rWIJPFX07gSsfkg/edit?usp=sharing
+MVP🎯
+User can create/register as a client and login with the registered credentials.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+User can create/register as an instructor by entering an additional Auth Code during signup, and can login with the registered credentials.
 
-## Available Scripts
+client and instructor are both presented with the appropriate on-boarding walkthrough on first sign-in, with an option to skip it.
 
-In the project directory, you can run:
+Authenticated Instructor can create update and delete a class. At a minimum, each class must have the following properties:
 
-### `npm start`
+Name
+Type
+Start time
+Duration
+Intensity level
+Location
+Current number of registered attendees
+Max class size
+Authenticated client can search for available classes. At a minimum, they must be able to search by the following criteria:
+class time
+class date
+class duration
+class type
+intensity level
+class location
+Authenticated instructor can create virtual punch pass categories for each type of group fitness class they offer (yoga, insanity, RIPPED, pilates, etc.)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Authenticated user can reserve a spot in a class with available seats open, and can reschedule or cancel their current reservation from the mobile app.
+OUR TEAM
+Unit 2: Jada Banks, Mark Gabon, Jessica Kitchen
+Unit 3: Rebecca Ogden
+Unit 4: Tina Gao, Desiree Garcia
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+What is Build Weeks?
+BloomTech Build Weeks is a cross-collaborative project that takes place at the end of each unit of instruction. Learners are tasked with building out a product based on a product canvas detailing the pitch, scope and MVP of the project. These projects vary widely in their stated application but all demonstrate full CRUD-functionality in a form of a full-stack developed web application.
+Team members will work across all units of instruction- spanning from React Engineers to backend architects- to successfully build and deploy a fully-functioning, React-based web application that supports persistent data storage via a SQL database.
+Build Weeks is an exercise not just in technical chops, but too of a team's ability to realistically plan the development, via an Agile workflow, of a staged production application, all while maintaining a healthy workflow of a collaborative Github organization. The end product is the sum of a week's worth of development and is often debuted as a proof-of-concept, though front end design is taken into consideration through use of design systems and / or CSS frameworks. All of this planning takes into the account the time restrictions of delivering said product within the time frame of one week.
+The tech stack used in these project is subject to the team's choice and is a big part of the planning process in the Product Vision Document, a brief meeting prior to the initial development, to discuss the nature of which technologies will be leveraged to build the product. These are "green field projects" and there is no prior codebase inherited at the time of Build Weeks beginning. The primary tech stack we use for BloomTech's web development curriculum includes:
+React and NodeJS / Express for the front end
+SQLite3 / PostgreSQL for a database
+Jest / Mocha for testing
