@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-
-
+import photo from '../Photos/red.jpg'
+import { useHistory } from 'react-router-dom'
 const RegisterDiv = styled.div`
 background: white;
 color: black;
@@ -19,12 +19,25 @@ export default function Register (props) {
         values, 
         submit,
         change, 
-        errors
+        errors,
+        disabled
     } = props
 
+    const history = useHistory()
+    const routeToDashboard = () => {
+        if (values.role === 'client'){
+        history.push('/userhome');
+        } else if(values.role === 'instructor'){
+            history.push('/instructorhome')
+        } else {
+            history.push('/')
+        } 
+    }
+    
     const onSubmit = e => {
         e.preventDefault()
         submit()
+        routeToDashboard()
     }
 
     const onChange = (e, v) => {
@@ -106,7 +119,7 @@ export default function Register (props) {
                     </label>
                 </div>
 
-                <button>Submit</button>
+                <button disabled={disabled}>Submit</button>
 
             </div>
         </form>
