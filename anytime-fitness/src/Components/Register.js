@@ -23,8 +23,15 @@ export default function Register (props) {
         disabled
     } = props
 
+    const history = useHistory()
+
+    const routeToLogin = () => {
+        history.push('/');
+    }
+
     const onSubmit = e => {
         e.preventDefault()
+
         submit()
     }
 
@@ -107,7 +114,7 @@ export default function Register (props) {
                     </label>
                 </div>
 
-                <button disabled={disabled}>Submit</button>
+                <button disabled={disabled} onSubmit={routeToLogin}>Submit</button>
 
             </div>
         </form>

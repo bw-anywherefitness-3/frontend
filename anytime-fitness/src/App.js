@@ -124,23 +124,11 @@ const inputChange = (name, value) => {
 }
 
 const postNewClass = newClass => {
-  axios.post('https://bw-anywherefitness-3.herokuapp.com/api/classes', newClass)
+  axios.post('https://bw-anywherefitness-3.herokuapp.com/api/classes/:id', newClass)
   .then(resp => {
     setClasses([resp.data, ...classes]);
   }).catch(err => console.log(err))
   .finally(() => setFormValues(initialFormValues))
-}
-
-const formSubmit = () => {
-  const newUser = {
-    firstName: formValues.firstName.trim(),
-    lastName: formValues.lastName.trim(),
-    email: formValues.email.trim(), 
-    password: formValues.password.trim(),
-    role: formValues.role
-  }
-  console.log(newUser)
-  postNewUser(newUser)
 }
 
 useEffect(() => {
