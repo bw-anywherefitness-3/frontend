@@ -1,5 +1,5 @@
 import React from "react";
-import ClassDetails from "./ClassDetails"
+
 
 import {
     Route,
