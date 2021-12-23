@@ -63,7 +63,7 @@ const inputChange = (name, value) => {
 }
 
 const postNewClass = newClass => {
-  axios.post('https://bw-anywherefitness-3.herokuapp.com/api/classes', newClass)
+  axios.post('https://bw-anywherefitness-3.herokuapp.com/api/classes/:id', newClass)
   .then(resp => {
     setClasses([resp.data, ...classes]);
   }).catch(err => console.log(err))
