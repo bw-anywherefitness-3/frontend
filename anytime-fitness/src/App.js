@@ -5,8 +5,8 @@ import { Link, Route, Switch } from 'react-router-dom';
 import axios from 'axios'
 import Register from './Components/Register';
 import Login from './Components/Login';
-// import ClassDetails from './Components/ClassDetails';
-// import InstructorDash from './Components/InstructorDash';
+import ClassDetails from './Components/ClassDetails';
+import InstructorDash from './Components/InstructorDash';
 import UserDash from './Components/UserDash';
 
 const initialFormValues = {
@@ -28,9 +28,11 @@ const initialFormErrors = {
 const initialUsers = []
 // const initialDisabled = true;
 const initialClasses = []
+const initialInstructors = []
 
 export default function App() {
   const [users, setUsers] = useState(initialUsers);
+  const [instructors, setInstructors] = useState(initialInstructors);
   const [classes, setClasses] = useState(initialClasses);
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
@@ -73,10 +75,12 @@ const postNewUser = newUser => {
       </div>
 
       <Switch>
-        {/* <Route path='/userhome/classdetails'>
+        <Route path='/userhome/classdetails'>
+          <ClassDetails cDetails={classes} />
         </Route>
         <Route path='/instructorhome'>
-  </Route> */}
+          <InstructorDash iDetails={instructors} createdCs={classes}/>
+        </Route>
         <Route path='/userhome'>
           <UserDash uDetails={users} cDetails={classes} />
         </Route> 
