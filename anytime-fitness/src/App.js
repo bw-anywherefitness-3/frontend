@@ -106,7 +106,6 @@ export default function App() {
         <Route path='/instructorhome'>
   </Route> */}
         <Route path='/userhome'>
-<<<<<<< HEAD
         </Route>
 
         <Route path='/'>
@@ -117,11 +116,9 @@ export default function App() {
           errors={formErrors}
           />
         </Route>
-
-=======
+        <Route>
           <UserDash uDetails={users} cDetails={classes} />
         </Route> 
->>>>>>> 652d87f73dcfbd88cbd4d3a5ec03ebd8beac9810
         <Route path='/register'>
           <Register 
           values={formValues}
@@ -130,16 +127,13 @@ export default function App() {
           errors={formErrors}
           />
         </Route>
-<<<<<<< HEAD
 
-=======
         <Route path='/'>
           <Login 
           values={formValues}
           change={inputChange}
           />
         </Route>
->>>>>>> 652d87f73dcfbd88cbd4d3a5ec03ebd8beac9810
       </Switch>
   </div>
   </AppStyled>
