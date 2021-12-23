@@ -5,7 +5,7 @@ import {
 	updateClass,
 	updateCurrentUser,
 	getClasses,
-} from "../../actions/actions";
+} from "./actions";
 import axios from "axios";
 
 const initialFormErrors = {

@@ -5,8 +5,8 @@ import {
 	addNewClass,
 	updateCurrentUser,
 	setClasses,
-} from "../../actions/actions";
-import "../../App.css";
+} from "./actions";
+import "../App.css";
 import axios from "axios";
 
 const CreateClass = (props) => {
