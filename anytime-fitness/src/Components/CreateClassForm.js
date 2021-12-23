@@ -5,8 +5,8 @@ import {
 	addNewClass,
 	updateCurrentUser,
 	setClasses,
-} from "../../actions/actions";
-import "../../App.css";
+} from "../actions";
+import "../App.css";
 import axios from "axios";
 
 const CreateClass = (props) => {
@@ -91,11 +91,11 @@ const CreateClass = (props) => {
 		};
 
 		const response = await axios.post(
-			"https://anywherefitnessapis.herokuapp.com/api/v1/class/",
+			"https://bw-anywherefitness-3.herokuapp.com/api/classes",
 			formToSend
 		);
 		axios
-			.get("https://anywherefitnessapis.herokuapp.com/api/v1/class/")
+			.get("https://bw-anywherefitness-3.herokuapp.com/api/classes")
 			.then((res) => {
 				props.setClasses(res.data.allClasses);
 			})
