@@ -3,10 +3,11 @@ import styled from 'styled-components';
 import photo from '../Photos/run.png'
 import { useHistory } from 'react-router-dom'
 const RegisterDiv = styled.div`
-background-color: white;
-color: black;
+background-color: black;
+color: white;
 padding: 60px 0;
 width: 50%;
+opacity: 0.95;
 .name{
     display: flex;
     flex-direction: column;
