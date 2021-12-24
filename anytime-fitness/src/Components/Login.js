@@ -44,6 +44,8 @@ h1{
     margin-left: 40%;
     padding: 1%;
     font-size: 1rem;
+    font-family: 'Staatliches', cursive;
+
 }
 .nav-links .register{
     color: black;
@@ -55,6 +57,8 @@ h1{
     display: flex;
     align-items: center;
     padding: 1%;
+    font-family: 'Staatliches', cursive;
+
 }
 .nav-links{
     text-decoration: none;
