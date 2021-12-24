@@ -1,16 +1,72 @@
 import React from 'react';
 import styled from 'styled-components';
+< styled-login2
+import photo from '../Photos/run.png'
+=======
 import photo from '../Photos/red.jpg'
+> main
 import { useHistory } from 'react-router-dom'
 const RegisterDiv = styled.div`
-background: white;
-color: black;
+background-color: black;
+color: white;
+padding: 60px 0;
+width: 50%;
+opacity: 0.95;
 .name{
     display: flex;
     flex-direction: column;
-    justify-content: center;
 }
-padding: 60px 0;
+.firstName{
+    padding: 2%;
+}
+.first{
+  margin-left: 2%;
+}
+.lastName{
+    padding: 2%;
+}
+.last{
+    margin-left: 3%;
+}
+.email{
+    padding: 2%;
+}
+.mail{
+    margin-left: 8%;
+}
+.password{
+    padding: 2%;
+}
+.pass{
+    margin-left: 3%;
+}
+.role{
+    padding: 2%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+.client{
+    padding: 2%;
+}
+.inst{
+    padding: 2%;
+}
+button{
+    border: 2px black solid;
+    border-radius: 10px;
+    background: black;
+    color: white;
+    width: 15%;
+    padding: 1%;
+    font-size: 1rem;
+    font-family: 'Staatliches', cursive;
+}
+`
+const RunImg = styled.div`
+display: flex;
+
 `
 
 
@@ -24,6 +80,10 @@ export default function Register (props) {
     } = props
 
     const history = useHistory()
+<< styled-login2
+
+=======
+>> main
     const routeToDashboard = () => {
         if (values.role === 'client'){
         history.push('/userhome');
@@ -32,7 +92,17 @@ export default function Register (props) {
         } else {
             history.push('/')
         } 
+<< styled-login2
     }
+    
+
+
+    const routeToLogin = () => {
+        history.push('/');
+=======
+>> main
+    }
+
 
     const onSubmit = e => {
         e.preventDefault()
@@ -47,7 +117,9 @@ export default function Register (props) {
     }
 
     return (
+        <RunImg className='pic'>
         <RegisterDiv>
+            
         <form id='register-form' onSubmit={onSubmit}>
             <div className='form'>
                 <h2>Create a new Account</h2>
@@ -59,6 +131,7 @@ export default function Register (props) {
                     <div>{errors.role}</div>
                 </div>
                 <div className='name'>
+                <div className='firstName'>
                     <label>First Name: 
                         <input
                         type='text'
@@ -66,8 +139,11 @@ export default function Register (props) {
                         placeholder='John'
                         value={values.firstName}
                         onChange={onChange}
+                        className='first'
                         />
                     </label> 
+                    </div>
+                    <div className='lastName'>
                     <label>Last Name:
                         <input
                         type='text'
@@ -75,17 +151,20 @@ export default function Register (props) {
                         placeholder='Doe'
                         value={values.lastName}
                         onChange={onChange} 
+                        className='last'
                         />
                     </label>
+                </div>
                 </div>
                 <div className='email'>
                     <label>Email:
                         <input 
                         type='text'
                         name='email'
-                        placeholder='JohnDoe1234@yahoo.com'
+                        placeholder='John@email.com'
                         value={values.email}
                         onChange={onChange}
+                        className='mail'
                         />
                     </label>
                 </div>
@@ -94,13 +173,15 @@ export default function Register (props) {
                         <input 
                         type='password'
                         name='password'
-                        placeholder='Password1234!'
+                        placeholder='Password'
                         value={values.password}
                         onChange={onChange}
+                        className='pass'
                         />
                     </label>
                 </div>
                 <div className='role'>
+                    <div className='client'>
                     <label>Client
                         <input 
                         type='radio'
@@ -109,6 +190,8 @@ export default function Register (props) {
                         onChange={e => onChange(e, 'client')}
                         />
                     </label>
+                    </div>
+                    <div className='inst'>
                     <label>Instructor
                         <input 
                         type='radio'
@@ -117,6 +200,7 @@ export default function Register (props) {
                         onChange={e => onChange(e, 'instructor')}
                         />
                     </label>
+                    </div>
                 </div>
 
                 <button disabled={disabled} >Submit</button>
@@ -124,5 +208,7 @@ export default function Register (props) {
             </div>
         </form>
         </RegisterDiv>
+       <img src={photo} alt='Man running'/>
+       </RunImg>
     )
 }

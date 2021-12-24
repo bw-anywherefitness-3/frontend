@@ -37,12 +37,15 @@ h1{
 .nav-links .submit{
     border: 2px black solid;
     border-radius: 10px;
-    background: black;
+    background-color: black;
+    background-position: absolute;
     color: white;
     width: 15%;
     margin-left: 40%;
     padding: 1%;
     font-size: 1rem;
+    font-family: 'Staatliches', cursive;
+
 }
 .nav-links .register{
     color: black;
@@ -54,6 +57,8 @@ h1{
     display: flex;
     align-items: center;
     padding: 1%;
+    font-family: 'Staatliches', cursive;
+
 }
 .nav-links{
     text-decoration: none;
@@ -143,10 +148,17 @@ return (
         </label>
     </div>
     <div className='nav-links'>
+< styled-login2
+      <button className='nav-links submit'>Submit</button>
+      <div className='bottom'>
+      <h4>Don't have an account?</h4>
+      <button className='nav-links register'onClick={onSubmit}>Join us!</button>
+
       <button>Submit</button>
       <div className='bottom'>
       <h4>Don't have an account?</h4>
       <button onClick={onSubmit}>Join us!</button>
+> main
     </div>
     </div>
 </form>
