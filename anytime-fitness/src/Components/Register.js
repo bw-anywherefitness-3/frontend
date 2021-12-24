@@ -56,6 +56,7 @@ button{
     width: 15%;
     padding: 1%;
     font-size: 1rem;
+    font-family: 'Staatliches', cursive;
 }
 `
 const RunImg = styled.div`
