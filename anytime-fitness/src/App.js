@@ -51,16 +51,16 @@ h3{
 
 
 const initialFormValues = {
-  firstName: '',
-  lastName: '',
+ first_name: '',
+ last_name: '',
   email: '', 
   password: '',
   role: ''
 }
 
 const initialFormErrors = {
-  firstName: '',
-  lastName: '',
+ first_name: '',
+ last_name: '',
   email: '', 
   password: '',
   role: ''
@@ -84,8 +84,8 @@ export default function App() {
 
   const formSubmit = () => {
     const newUser = {
-      firstName: formValues.firstName.trim(),
-      lastName: formValues.lastName.trim(),
+     first_name: formValues.firstName.trim(),
+     last_name: formValues.lastName.trim(),
       email: formValues.email.trim(), 
       password: formValues.password.trim(),
       role: formValues.role
@@ -104,7 +104,7 @@ export default function App() {
 
 
 const postNewUser = newUser => {
-  axios.post('https://bw-anywherefitness-3.herokuapp.com/api/users', newUser)
+  axios.post('https://bw-anywherefitness-3.herokuapp.com/api/auth/register', newUser)
   .then(resp => {
     setUsers([resp.data, ...users]);
   }).catch(err => console.log(err))
@@ -171,20 +171,11 @@ const classFormSubmit = () => {
         <Route path='/instructorhome'>
           <InstructorDash iDetails={instructors} createdCs={classes}/>
         </Route>
-        <Route path='/userhome'>
-        </Route>
 
-        <Route path='/'>
-          <Login 
-          values={formValues}
-          change={inputChange}
-          submit={loginSubmit}
-          errors={formErrors}
-          />
-        </Route>
-        <Route>
+        <Route path='/userhome'>
           <UserDash uDetails={users} cDetails={classes} />
         </Route> 
+
         <Route path='/register'>
           <Register 
           values={formValues}
@@ -199,6 +190,8 @@ const classFormSubmit = () => {
           <Login 
           values={formValues}
           change={inputChange}
+          submit={loginSubmit}
+          errors={formErrors}
           />
         </Route>
       </Switch>

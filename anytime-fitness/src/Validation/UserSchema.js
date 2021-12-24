@@ -16,6 +16,11 @@ const UserSchema = yup.object().shape({
         .trim()
         .required()
         .min(6, 'name must be at least 6 characters'),
+        email: yup
+    .string()
+    .trim()
+    .email('Gotta be a valid email address!')
+    .required('email address required'),
     role: yup 
     .string()
     .oneOf(['client', 'instructor'], 'role is required!'),
