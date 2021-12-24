@@ -51,16 +51,16 @@ h3{
 
 
 const initialFormValues = {
-  firstName: '',
-  lastName: '',
+ first_name: '',
+ last_name: '',
   email: '', 
   password: '',
   role: ''
 }
 
 const initialFormErrors = {
-  firstName: '',
-  lastName: '',
+ first_name: '',
+ last_name: '',
   email: '', 
   password: '',
   role: ''
@@ -84,8 +84,8 @@ export default function App() {
 
   const formSubmit = () => {
     const newUser = {
-      firstName: formValues.firstName.trim(),
-      lastName: formValues.lastName.trim(),
+     first_name: formValues.firstName.trim(),
+     last_name: formValues.lastName.trim(),
       email: formValues.email.trim(), 
       password: formValues.password.trim(),
       role: formValues.role
