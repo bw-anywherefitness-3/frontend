@@ -1,6 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+< styled-login2
 import photo from '../Photos/run.png'
+=======
+import photo from '../Photos/red.jpg'
+> main
 import { useHistory } from 'react-router-dom'
 const RegisterDiv = styled.div`
 background-color: black;
@@ -76,7 +80,10 @@ export default function Register (props) {
     } = props
 
     const history = useHistory()
+<< styled-login2
 
+=======
+>> main
     const routeToDashboard = () => {
         if (values.role === 'client'){
         history.push('/userhome');
@@ -85,18 +92,20 @@ export default function Register (props) {
         } else {
             history.push('/')
         } 
+<< styled-login2
     }
     
 
 
     const routeToLogin = () => {
         history.push('/');
+=======
+>> main
     }
 
 
     const onSubmit = e => {
         e.preventDefault()
-
         submit()
         routeToDashboard()
     }
@@ -178,7 +187,7 @@ export default function Register (props) {
                         type='radio'
                         name='role'
                         value={values.role}
-                        onChange={e => onChange(e, 'Client')}
+                        onChange={e => onChange(e, 'client')}
                         />
                     </label>
                     </div>
@@ -188,13 +197,13 @@ export default function Register (props) {
                         type='radio'
                         name='role'
                         value={values.role}
-                        onChange={e => onChange(e, 'Instructor')}
+                        onChange={e => onChange(e, 'instructor')}
                         />
                     </label>
                     </div>
                 </div>
 
-                <button disabled={disabled} onSubmit={routeToLogin}>Submit</button>
+                <button disabled={disabled} >Submit</button>
 
             </div>
         </form>

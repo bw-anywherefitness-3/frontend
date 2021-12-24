@@ -148,10 +148,17 @@ return (
         </label>
     </div>
     <div className='nav-links'>
+< styled-login2
       <button className='nav-links submit'>Submit</button>
       <div className='bottom'>
       <h4>Don't have an account?</h4>
       <button className='nav-links register'onClick={onSubmit}>Join us!</button>
+
+      <button>Submit</button>
+      <div className='bottom'>
+      <h4>Don't have an account?</h4>
+      <button onClick={onSubmit}>Join us!</button>
+> main
     </div>
     </div>
 </form>
