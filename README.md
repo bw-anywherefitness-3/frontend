@@ -42,6 +42,8 @@ Instructors can take attendance, request and process payments, create virtual â€
 
 7. Authenticated `user` can reserve a spot in a `class` with available seats open, and can reschedule or cancel their current `reservation` from the mobile app
 
+Deployed URL: [https://anywhere-fitness-3bw.herokuapp.com/](https://anywhere-fitness-3bw.herokuapp.com/)
+
 # *Meet the Team*
 
 <img src="https://ca.slack-edge.com/ESZCHB482-U028G2L45RC-b260f7c84dc4-512" 
